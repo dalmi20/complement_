@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import compl from "@/assets/compl.jpg"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import React from "react"
 
@@ -20,8 +21,7 @@ export default function App() {
               <img
                 src={compl}
                 alt="Inflammox"
-                className="object-cover  ml-2
-                 mr-6 h-auto max-h-[600px] rounded-md shadow-md"
+                className="object-cover  ml-6 mr-6 h-auto max-h-[600px] rounded-md shadow-md"
               />
             </Card>
 
@@ -41,18 +41,43 @@ export default function App() {
       </div>
 
       {/* Tabs Navigation */}
-      <Tabs value={tabValue} onValueChange={setTabValue} className="space-y-8">
-        <div className="bg-gray-100 py-4 px-2 rounded-md shadow-sm">
-          <TabsList className="flex flex-wrap justify-center gap-3 sm:gap-4">
-            <TabsTrigger value="sante">✅ Allégations santé</TabsTrigger>
-            <TabsTrigger value="composition">🧪 Composition</TabsTrigger>
-            <TabsTrigger value="posologie">📦 Posologie</TabsTrigger>
-            <TabsTrigger value="bienfaits">🌟 Bienfaits</TabsTrigger>
-            <TabsTrigger value="precautions">⚠️ Précautions</TabsTrigger>
-            <TabsTrigger value="conservation">🧴 Conservation</TabsTrigger>
-            <TabsTrigger value="conseils">💡 Conseils</TabsTrigger>
-          </TabsList>
-        </div>
+     <Tabs value={tabValue} onValueChange={setTabValue} className="space-y-6">
+  <div className="relative bg-gray-100 py-3 px-2 rounded-md shadow-sm">
+    {/* Scroll Left Button */}
+<button
+  onClick={() => scrollTabs("left")}
+  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-md border border-gray-300 shadow-lg p-2 rounded-full hover:bg-white transition md:hidden"
+  aria-label="Scroll left"
+>
+  <ChevronLeft className="w-5 h-5 text-gray-700" />
+</button>
+
+    {/* Scrollable Tabs List */}
+    <div
+      id="scroll-container"
+      className="overflow-x-auto scrollbar-hide md:overflow-visible"
+    >
+      <TabsList className="flex w-max md:w-full justify-start md:justify-center items-center gap-2 sm:gap-3 px-6">
+        <TabsTrigger value="sante">✅ Allégations santé</TabsTrigger>
+        <TabsTrigger value="composition">🧪 Composition</TabsTrigger>
+        <TabsTrigger value="posologie">📦 Posologie</TabsTrigger>
+        <TabsTrigger value="bienfaits">🌟 Bienfaits</TabsTrigger>
+        <TabsTrigger value="precautions">⚠️ Précautions</TabsTrigger>
+        <TabsTrigger value="conservation">🧴 Conservation</TabsTrigger>
+        <TabsTrigger value="conseils">💡 Conseils</TabsTrigger>
+      </TabsList>
+    </div>
+
+    {/* Scroll Right Button */}
+ 
+<button
+  onClick={() => scrollTabs("right")}
+  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-md border border-gray-300 shadow-lg p-2 rounded-full hover:bg-white transition md:hidden"
+  aria-label="Scroll right"
+>
+  <ChevronRight className="w-5 h-5 text-gray-700" />
+</button>
+  </div>
 
         {/* Tab Contents */}
         {tabSections.map(({ value, title, items }) => (
@@ -61,8 +86,8 @@ export default function App() {
       </Tabs>
 
       {/* Quality + Safety */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-8">
-        <Card className="p-6 space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <Card className="p-6">
           <h2 className="text-xl font-semibold">♻️ Engagements qualité</h2>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
             <li>Formule 100 % naturelle, sans additifs ni conservateurs</li>
@@ -71,7 +96,7 @@ export default function App() {
           </ul>
         </Card>
 
-        <Card className="p-6 space-y-4">
+        <Card className="p-6 ">
           <h2 className="text-xl font-semibold">🧪 Sécurité & Toxicité</h2>
           <p className="text-gray-700">
             🔬 Inflammox a été soumis à une évaluation de la toxicité. Les résultats ont montré l'absence de toxicité
@@ -79,8 +104,35 @@ export default function App() {
           </p>
         </Card>
       </div>
+      {/* Footer */}
+<footer className="mt-16 border-t pt-10 pb-6 text-center text-sm text-gray-600 bg-white">
+  <div className="max-w-6xl mx-auto px-4">
+    <p className="mb-2">
+      © {new Date().getFullYear()} Inflammox. Tous droits réservés.
+    </p>
+    <div className="flex justify-center gap-4 text-gray-500">
+      <a href="#" className="hover:text-gray-800 transition">Mentions légales</a>
+      <span>|</span>
+      <a href="#" className="hover:text-gray-800 transition">Politique de confidentialité</a>
+      <span>|</span>
+      <a href="#" className="hover:text-gray-800 transition">Contact</a>
+    </div>
+  </div>
+</footer>
+
     </div>
   )
+}
+
+function scrollTabs(direction: "left" | "right") {
+  const container = document.getElementById("scroll-container")
+  if (!container) return
+
+  const scrollAmount = 150
+  container.scrollBy({
+    left: direction === "left" ? -scrollAmount : scrollAmount,
+    behavior: "smooth",
+  })
 }
 
 function TabCardContent({ value, title, items }: { value: string; title: string; items: string[] }) {
