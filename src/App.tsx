@@ -20,7 +20,8 @@ export default function App() {
               <img
                 src={compl}
                 alt="Inflammox"
-                className="object-cover  ml-6 mr-6 h-auto max-h-[600px] rounded-md shadow-md"
+                className="object-cover  ml-2
+                 mr-6 h-auto max-h-[600px] rounded-md shadow-md"
               />
             </Card>
 
