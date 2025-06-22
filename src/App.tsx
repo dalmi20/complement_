@@ -214,7 +214,7 @@ const tabSections = [
       "Ne pas dépasser la dose journalière recommandée",
       "Tenir hors de portée des enfants",
       "Ne se substitue pas à une alimentation variée et équilibrée et à un mode de vie sain",
-      "Déconseillé aux personnels allergiques  aux additifs alimentaires, aux individus suivant un traitement anticoagulant ou anti-inflammatoire en raison de possible interaction."
+      "Déconseillé aux personnes allergiques aux additifs alimentaires, aux individus suivant un traitement anticoagulant ou anti-inflammatoire en raison de possible interaction."
     ],
   },
   {
