@@ -64,6 +64,7 @@ export default function App() {
         <TabsTrigger value="bienfaits">🌟 Bienfaits</TabsTrigger>
         <TabsTrigger value="precautions">⚠️ Précautions</TabsTrigger>
         <TabsTrigger value="conservation">🧴 Conservation</TabsTrigger>
+        <TabsTrigger value="conservation">🎯 Population ciblé</TabsTrigger>
         <TabsTrigger value="conseils">💡 Conseils</TabsTrigger>
       </TabsList>
     </div>
