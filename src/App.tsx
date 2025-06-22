@@ -225,7 +225,7 @@ const tabSections = [
     ],
   },
   {
-    value: "Population ciblé",
+    value: "population ciblé",
     title: " 🎯 Population ciblé",
     items: [
       "Les personnes souffrant de maladies chroniques non transmissibles.",
