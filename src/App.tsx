@@ -90,7 +90,7 @@ export default function App() {
         <Card className="p-6">
           <h2 className="text-xl font-semibold">♻️ Engagements qualité</h2>
           <ul className="list-disc list-inside text-gray-700 space-y-1">
-            <li>Formule 100 % naturelle, sans additifs ni conservateurs</li>
+            <li>Formule 100 % naturelle, sans sucre, sans gluten</li>
             <li>Gélules végétales adaptées aux régimes végétariens et végans</li>
             <li>Emballage recyclable</li>
           </ul>
@@ -178,7 +178,6 @@ const tabSections = [
       "Poudre de feuilles de Ziziphus lotus",
       "Poudre de feuilles de Pistacia lentiscus",
       "Amidon (agent de charge naturel)",
-      "Gélule végétale HPMC (hypromellose)",
     ],
   },
   {
@@ -186,7 +185,7 @@ const tabSections = [
     title: "📦 Format et posologie",
     items: [
       "Boîte de 30 gélules végétales",
-      "Posologie recommandée : 1 gélule par jour, le matin avec un grand verre d'eau",
+      "Posologie recommandée : 1 gélule par jour avec un grand verre d'eau",
       "Durée de la cure : 30 jours",
     ],
   },
@@ -214,13 +213,25 @@ const tabSections = [
       "Ne pas dépasser la dose journalière recommandée",
       "Tenir hors de portée des enfants",
       "Ne se substitue pas à une alimentation variée et équilibrée et à un mode de vie sain",
+      "Déconseillé aux personnels allergiques  aux additifs alimentaires, aux individus suivant un traitement anticoagulant ou anti-inflammatoire en raison de possible interaction."
     ],
   },
   {
     value: "conservation",
     title: "🧴 Conservation",
     items: [
-      "Conserver à l'abri de la lumière, de la chaleur et de l'humidité, dans son emballage d'origine bien fermé",
+      "Conserver dans un endroit sec, a l'abri de la chaleur et dans un  emballage bien fermé",
+    ],
+  },
+  {
+    value: "Population ciblé",
+    title: " 🎯 Population ciblé",
+    items: [
+      "Les personnes souffrant de maladies chroniques non transmissibles.",
+      "Les personnes atteintes de maladies orthopédiques du a l'inflammation.",
+      "Les personnes exposées au stress oxydatif (fumeurs).",
+      "Les personnes âgées.",
+      "Les personnes en période de convalescence ou de fatigue physique.",
     ],
   },
   {
